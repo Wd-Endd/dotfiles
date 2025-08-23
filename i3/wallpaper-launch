@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+killall -q xwallpaper
+xwallpaper --daemon --stretch \
+    "/data/data/com.termux/files/home/.wallpaper/sorasaki-hina-dress-blue-archive-wallpaperwaifu-com.png"

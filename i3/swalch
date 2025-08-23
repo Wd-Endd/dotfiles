@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec python ~/.local/opt/swalch-i3wm/main.py $@
