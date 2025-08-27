@@ -138,7 +138,7 @@ set $base #1e1e2e
 set $mantle #181825
 set $crust #11111b
 
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 0
 # default_border pixel 4
 # new_window pixel 4
 # exec_always i3-msg [class=.*] border pixel 4
@@ -149,11 +149,11 @@ client.focused_inactive  $overlay0 $base $text  $lavender $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $peach  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-# client.background        $base
+client.background        $base
 
 gaps inner 5
 gaps outer 0
-gaps top 24
+gaps top 22
 # gaps bottom 30
 
 exec_always --no-startup-id "xrdb -merge ~/.Xresources"

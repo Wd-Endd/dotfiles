@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+termux-x11 :1 -xstartup "~/.xinitrc" &
+PID=$!
+export DISPLAY=:1
+am start com.termux.x11/com.termux.x11.MainActivity
+
+trap 'xfce4-session-logout -l' SIGINT
+
+wait $PID
