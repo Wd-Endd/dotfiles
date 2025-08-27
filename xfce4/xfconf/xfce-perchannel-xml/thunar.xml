@@ -11,9 +11,9 @@
   <property name="last-menubar-visible" type="bool" value="true"/>
   <property name="last-window-width" type="int" value="1268"/>
   <property name="last-window-height" type="int" value="951"/>
-  <property name="last-window-maximized" type="bool" value="false"/>
+  <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_75_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,169,161,92,85,50,50,366,50,50,108,50,687"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,169,161,92,85,50,50,452,50,50,108,50,711"/>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="computer:///"/>
     <value type="string" value="file:///"/>
