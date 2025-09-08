@@ -1,19 +1,15 @@
-import os
+import os, sys
 from pathlib import Path
-import psutil
 
-videoDir = Path("~/Movies/").expanduser()
+videoDir = Path(sys.argv[1]).expanduser()
 pidFile = videoDir / ".recording"
 pid = None
 icon = "󰻂 "
 
 if os.path.exists(pidFile):
+    icon = " "
     with open(pidFile, "r") as f:
-        icon = " "
-        pid = f.read()
-        f.close()
-
-    if psutil.pid_exists(int(pid)):
-        icon = " "
-
+        data = f.read().strip()
+        if data == "writing...": icon = " "
+        elif data == "washing...": icon = " "
 print(icon)

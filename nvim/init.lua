@@ -65,10 +65,10 @@ vim.api.nvim_set_keymap(
 )
 
 -- Buffer Bar
--- vim.api.nvim_set_keymap(
---     'n', '<leader>bd', ':BufferClose<CR>',
---     { noremap = true, silent = true }
--- )
+vim.api.nvim_set_keymap(
+    'n', '<leader>bd', ':BufDel<CR>',
+    { noremap = true, silent = true }
+)
 
 -- Tab
 vim.api.nvim_set_keymap(

@@ -50,6 +50,7 @@ return {
 
     -- BarBar Show Tabpages
     -- require("plugins.barbar"),
+    require("plugins.bufdel"),
 
     -- Mark Down Preview
     -- require("plugins.md-preview"),

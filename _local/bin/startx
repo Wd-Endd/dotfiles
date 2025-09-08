@@ -5,6 +5,6 @@ PID=$!
 export DISPLAY=:1
 am start com.termux.x11/com.termux.x11.MainActivity
 
-trap 'xfce4-session-logout -l' SIGINT
+trap "kill -2 $PID" SIGINT
 
 wait $PID
