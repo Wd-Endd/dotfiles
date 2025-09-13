@@ -5,4 +5,5 @@ return {
     "pyright",
     -- "pylsp",
     "jsonls",
+    "bashls",
 }

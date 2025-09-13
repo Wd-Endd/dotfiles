@@ -2,4 +2,4 @@
 
 killall -q xwallpaper
 xwallpaper --daemon --stretch \
-    "/data/data/com.termux/files/home/.wallpaper/ryuuge-kisaki-neko-maid-blue-archive-moewalls-com.png"
+    "/data/data/com.termux/files/home/.wallpaper/wp5089549-scenery-anime-wallpapers.jpg"
