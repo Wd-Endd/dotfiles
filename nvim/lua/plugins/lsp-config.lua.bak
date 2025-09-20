@@ -5,15 +5,13 @@ return {
             ensure_installed = require("language-servers"),
         },
         config = function ()
-            lspconfig = vim.lsp.config
-            lspenable = vim.lsp.enable
+            lspconfig = require("lspconfig")
 
             for _, server in pairs(require("language-servers")) do
-                -- lspconfig(server, {})
-                lspenable(server)
+                lspconfig[server].setup({})
             end
 
-            lspconfig("ts_ls", {
+            lspconfig.ts_ls.setup {
                 filetypes = {
                     "javascript",
                     "javascriptreact",
@@ -22,18 +20,18 @@ return {
                     "typescriptreact",
                     "typescript.tsx",
                 }
-            })
+            }
 
-            lspconfig("jsonls", {
+            lspconfig.jsonls.setup {
                 settings = {
                     json = {
                         schemas = require('schemastore').json.schemas(),
                         validate = { enable = true },
                     },
                 },
-            })
+            }
 
-            lspconfig("yamlls", {
+            lspconfig.yamlls.setup {
                 settings = {
                     yaml = {
                         schemaStore = {
@@ -46,7 +44,7 @@ return {
                         schemas = require('schemastore').yaml.schemas(),
                     },
                 },
-            })
+            }
 
         end,
         dependencies = {

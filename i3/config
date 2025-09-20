@@ -8,49 +8,112 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# Init
 set $mod Mod1
-
+floating_modifier $mod
+tiling_drag modifier titlebar
 font pango:monospace 8
 
+# Volume
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym $mod+Control+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym $mod+Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym $mod+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $mod+Control+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+Control+Up   exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   +10%   && $refresh_i3status
+bindsym $mod+Control+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@   -10%   && $refresh_i3status
+bindsym $mod+m            exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && $refresh_i3status
+bindsym $mod+Control+m    exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-floating_modifier $mod
+# Power
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exit
 
-tiling_drag modifier titlebar
+###
+# Apps
+###
 
-bindsym $mod+Control+T exec i3-sensible-terminal
+# Auto Start
+exec_always --no-startup-id "xrdb -merge ~/.Xresources"
+exec_always --no-startup-id ~/.config/i3/wallpaper-launch
+exec_always --no-startup-id ~/.config/i3/polybar-launch
+exec_always --no-startup-id picom
+exec_always --no-startup-id pulseaudio --start
 
-bindsym $mod+F4 kill
+# Shortcut
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+d      exec --no-startup-id rofi -show drun
+bindsym $mod+t      exec thunar
 
-bindsym $mod+F3 exec --no-startup-id rofi -show drun
+# Screenshot
+bindsym           F12        exec --no-startup-id "scrot $HOME/Pictures/%Y-%m-%d-%H%M%S.png"
+bindsym --release Shift+F12 exec --no-startup-id "scrot -s $HOME/Pictures/%Y-%m-%d-%H%M%S.png"
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+# Ricing Tools
+bindsym $mod+F1           exec --no-startup-id "python $HOME/.local/opt/TogglePy/main.py"
+bindsym $mod+bracketright exec --no-startup-id "~/.config/i3/swalch next"
+bindsym $mod+bracketleft  exec --no-startup-id "~/.config/i3/swalch prev"
+
+###
+# Window
+###
+
+# Kill
+bindsym $mod+Shift+q kill window
+
+# Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h     move left
+bindsym $mod+Shift+j     move down
+bindsym $mod+Shift+k     move up
+bindsym $mod+Shift+l     move right
 
-bindsym $mod+h split h
+# Layout
+bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
 
-bindsym $mod+v split v
+bindsym $mod+f           fullscreen toggle
+bindsym $mod+Shift+space floating   toggle
 
-bindsym F11 fullscreen toggle
-bindsym $mod+F11 floating toggle
+# Resize
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym e resize shrink width  10 px or 10 ppt
+        bindsym s resize grow   height 10 px or 10 ppt
+        bindsym w resize shrink height 10 px or 10 ppt
+        bindsym f resize grow   width  10 px or 10 ppt
 
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+###
+# workspace
+###
+
+set $ws1  "1"
+set $ws2  "2"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
 set $ws10 "10"
-
 bindcode $mod+10 workspace number $ws1
 bindcode $mod+11 workspace number $ws2
 bindcode $mod+12 workspace number $ws3
@@ -61,7 +124,6 @@ bindcode $mod+16 workspace number $ws7
 bindcode $mod+17 workspace number $ws8
 bindcode $mod+18 workspace number $ws9
 bindcode $mod+19 workspace number $ws10
-
 bindcode $mod+Shift+10 move container to workspace number $ws1
 bindcode $mod+Shift+11 move container to workspace number $ws2
 bindcode $mod+Shift+12 move container to workspace number $ws3
@@ -73,93 +135,53 @@ bindcode $mod+Shift+17 move container to workspace number $ws8
 bindcode $mod+Shift+18 move container to workspace number $ws9
 bindcode $mod+Shift+19 move container to workspace number $ws10
 
-bindsym $mod+Control+Left workspace prev
-bindsym $mod+Control+Right workspace next
-bindsym $mod+Control+Home move container workspace prev
-bindsym $mod+Control+End move container workspace next
+# bindsym $mod+Control+Left  workspace prev
+# bindsym $mod+Control+Right workspace next
+# bindsym $mod+Control+Home move container workspace prev
+# bindsym $mod+Control+End move container workspace next
 
-bindsym $mod+Shift+r reload
-bindsym $mod+Shift+s restart
-bindsym $mod+Shift+e exec "i3-msg exit"
+###
+# Styles, Theme
+###
 
-mode "resize" {
-        bindcode 44 resize shrink width 10 px or 10 ppt
-        bindcode 45 resize grow height 10 px or 10 ppt
-        bindcode 46 resize shrink height 10 px or 10 ppt
-        bindcode 47 resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindcode 113 resize shrink width 50 px or 10 ppt
-        bindcode 116 resize grow height 50 px or 10 ppt
-        bindcode 111 resize shrink height 50 px or 10 ppt
-        bindcode 114 resize grow width 50 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        # bindsym $mod+ mode "default"
-}
-
-bindsym $mod+r mode "resize"
-bindsym $mod+Control+f exec thunar
-bindsym $mod+Shift+v exec xfce4-popup-clipman
-bindsym $mod+F1 exec --no-startup-id "python $HOME/.local/opt/TogglePy/main.py"
-
-bindsym F12 exec --no-startup-id "scrot $HOME/Pictures/%Y-%m-%d-%H%M%S.png"
-bindsym --release Shift+F12 exec --no-startup-id "scrot -s $HOME/Pictures/%Y-%m-%d-%H%M%S.png"
-
-bindsym $mod+bracketright exec "~/.config/i3/swalch next"; restart
-bindsym $mod+bracketleft exec "~/.config/i3/swalch prev"; restart
-
+# Catppuccin Colors
 set $rosewater #f5e0dc
-set $flamingo #f2cdcd
-set $pink #f5c2e7
-set $mauve #cba6f7
-set $red #f38ba8
-set $maroon #eba0ac
-set $peach #fab387
-set $yellow #f9e2af
-set $green #a6e3a1
-set $teal #94e2d5
-set $sky #89dceb
-set $sapphire #74c7ec
-set $blue #89b4fa
-set $lavender #b4befe
-set $text #cdd6f4
-set $subtext1 #bac2de
-set $subtext0 #a6adc8
-set $overlay2 #9399b2
-set $overlay1 #7f849c
-set $overlay0 #6c7086
-set $surface2 #585b70
-set $surface1 #45475a
-set $surface0 #313244
-set $base #1e1e2e
-set $mantle #181825
-set $crust #11111b
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b7
 
+# Window Style
 for_window [class=".*"] border pixel 0
-# default_border pixel 4
-# new_window pixel 4
-# exec_always i3-msg [class=.*] border pixel 4
+# default_border none
+# new_window pixeL 0
+# new_float pixel 0
 
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $lavender $lavender
-client.focused_inactive  $overlay0 $base $text  $lavender $overlay0
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
 client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $peach  $peach
+client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
+# Gaps
 gaps inner 5
 gaps outer 0
-gaps top 22
-# gaps bottom 30
-
-exec_always --no-startup-id "xrdb -merge ~/.Xresources"
-exec_always --no-startup-id ~/.config/i3/wallpaper-launch
-exec_always --no-startup-id ~/.config/i3/polybar-launch
-exec_always --no-startup-id picom
-
-# exec_always --no-startup-id4-clipman
-exec_always --no-startup-id pulseaudio --start
+gaps top   22

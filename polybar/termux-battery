@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-perc="$(termux-battery-status | grep "percentage" | awk '{print $2}')"
-perc="${perc//,/}%"
+perc="$(termux-battery-status | jq ".percentage")"
+perc="${perc}%"
 echo $perc

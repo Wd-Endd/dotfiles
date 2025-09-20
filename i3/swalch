@@ -1,3 +1,12 @@
 #!/usr/bin/env bash
 
-exec python ~/.local/opt/swalch-i3wm/main.py $@
+cwd=$(dirname "$0")
+python $HOME/.local/opt/swalch-i3wm/main.py $@ &
+PID1=$!
+
+wait $PID1
+exec "$cwd/./wallpaper-launch" &
+PID2=$!
+
+wait $PID2
+exit 0
