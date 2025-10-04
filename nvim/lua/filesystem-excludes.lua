@@ -1,4 +1,4 @@
 return {
-    ".git",
-    ".cache",
+	".git",
+	".cache",
 }

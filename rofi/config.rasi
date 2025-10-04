@@ -1,4 +1,5 @@
 configuration {
+    terminal: "xfce4-terminal";
     show-icons: true;
 
     display-ssh:    "󰣀 ssh:";

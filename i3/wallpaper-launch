@@ -5,4 +5,4 @@ PID1=$!
 
 wait $PID1
 xwallpaper --daemon --stretch \
-    "/data/data/com.termux/files/home/.wallpaper/wp5089549-scenery-anime-wallpapers.jpg" &
+    "/data/data/com.termux/files/home/.wallpaper/elaina-drinking-coffee-near-window-majo-no-tabitabi-wallpaperwaifu-com.png" &

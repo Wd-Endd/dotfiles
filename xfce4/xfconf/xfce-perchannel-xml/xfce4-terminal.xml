@@ -28,4 +28,9 @@
   <property name="misc-borders-default" type="bool" value="false"/>
   <property name="font-name" type="string" value="JetBrainsMono Nerd Font Bold 10"/>
   <property name="font-allow-bold" type="bool" value="true"/>
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_SOLID"/>
+  <property name="background-darkness" type="double" value="1"/>
+  <property name="background-image-file" type="string" value="/data/data/com.termux/files/home/.wallpaper/images.steamusercontent.jpg"/>
+  <property name="background-image-style" type="string" value="TERMINAL_BACKGROUND_STYLE_SCALED"/>
+  <property name="background-image-shading" type="double" value="0.90000000000000002"/>
 </channel>
