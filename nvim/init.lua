@@ -21,33 +21,43 @@ local builtin = require("telescope.builtin")
 -- Keymaps --
 -------------
 
+--- Command
+-- vim.api.nvim_set_keymap('n', '<CR>', '<cmd>FineCmdline<CR>', {noremap = true})
+
 -- Editing
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "K", vim.lsp.buf.hover,					{})
 vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, {})
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {})
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {})	
+vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help,	{})
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action,	{})
+vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition,	{})
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev,			{})
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next,			{})
+
 vim.api.nvim_set_keymap("n", "<leader>cbd", ":e %:p:h<CR>", {})
+vim.api.nvim_set_keymap("n", "<leader>rlb", ":e %<CR>",		{})
 
 -- Find File
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep,  { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers,	  { desc = "Telescope buffers" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags,  { desc = "Telescope help tags" })
 vim.api.nvim_set_keymap(
 	"n", "<leader>fr", ":Telescope oldfiles<CR>",
 	{ desc = "Telescope find recent file"}
 );
 
 -- Toggle Terminal
-vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tf", ":ToggleTerm direction=float<CR>",	   { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>",   { noremap = true, silent = true })
 
--- Buffer Bar
-vim.api.nvim_set_keymap("n", "<leader>bd", ":BufDel<CR>", { noremap = true, silent = true })
+-- Buffer Bar Bar
+vim.api.nvim_set_keymap("n", "<leader>bd", ":BufDel<CR>",			  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>bp", ":BufferPin<CR>",			  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[b",		   ":BufferPrevious<CR>",	  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]b",		   ":BufferNext<CR>",		  { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "[[b",		   ":BufferMovePrevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]]b",		   ":BufferMoveNext<CR>",	  { noremap = true, silent = true })
 
 -- Tab
 vim.api.nvim_set_keymap("n", "]t", ":tabnext<CR>", { noremap = true, silent = true })

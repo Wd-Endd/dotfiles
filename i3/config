@@ -182,6 +182,7 @@ client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
 
 # Gaps
-gaps inner 5
-gaps outer 0
-gaps top   22
+gaps inner  5
+gaps outer  0
+gaps top    22
+# gaps bottom 22

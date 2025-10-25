@@ -57,4 +57,7 @@ return {
 
 	-- Scrollbar
 	require("plugins.scrollbar"),
+
+	-- Fine-Cl
+	-- require("plugins.fine-cmpline"),
 }

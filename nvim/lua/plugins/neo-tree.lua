@@ -16,6 +16,11 @@ return {
 					hide_gitignored = false,
 					hide_by_name = require("filesystem-excludes"),
 				},
+				follow_current_file = {
+					enabled = true,
+					-- auto_reveal_hidden = true,
+					-- leave_unrevealed = false,
+				},
 			},
 		})
 	end,
