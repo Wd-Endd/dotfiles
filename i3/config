@@ -213,4 +213,4 @@ for_window [class="^.*"] border pixel 1
 # gaps
 gaps inner 5
 gaps outer 2
-gaps bottom 28
+gaps bottom 30
