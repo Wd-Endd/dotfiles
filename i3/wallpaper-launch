@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-killall -q xwallpaper &
-PID1=$!
-
-wait $PID1
-xwallpaper --daemon --stretch \
-    "/data/data/com.termux/files/home/.wallpaper/wallhaven-yx33x7.png" &

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# PIDFILE="~/.local/tmp/xinit/pid"
+# rm -rf $PIDFILE
+# mkdir -p $(dirname $PIDFILE)
+# echo "$$" >> $PIDFILE
+
 termux-x11 :1 -xstartup "~/.xinitrc" &
 PID=$!
 export DISPLAY=:1

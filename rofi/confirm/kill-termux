@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+theme=$(dirname $0)/./theme.rasi
+prompt="Goodbyaaaa!"
+options="Let me think again >_<\nTerminate Termux!"
+cancel="$(echo -e "$options" | grep 'think')"
+confirm="$(echo -e "$options" | grep 'Terminate')"
+
+returnn="~/.config/rofi/powermenu/powermenu"
+
+choosen=$(echo -e "$options" | rofi -dmenu -p "$prompt" -theme $theme)
+
+case "$choosen" in
+    "$cancel") exec $returnn
+    ;;
+    "$confirm") killall -q "com.termux"
+    ;;
+esac
+
