@@ -109,5 +109,5 @@ element selected urgent {
 error-message {
     expand: true;
     text-color: @red;
-    // background-color: @red;
+    background-color: @red;
 }

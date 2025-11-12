@@ -9,7 +9,7 @@ font pango:monospace 8
 # Xresources
 exec_always --no-startup-id xrdb -merge "$HOME/.Xresources"
 exec_always --no-startup-id feh --bg-scale "$HOME/.wallpaper/bars.jpg"
-exec_always --no-startup-id "killall -q polybar; polybar"
+exec_always --no-startup-id "killall -q polybar; polybar main"
 exec_always --no-startup-id "picom"
 
 exec_always --no-startup-id "xfce4-screensaver"
@@ -212,5 +212,6 @@ for_window [class="^.*"] border pixel 1
 
 # gaps
 gaps inner 5
-gaps outer 2
-gaps bottom 30
+gaps outer 5
+# gaps bottom 28
+# gaps top 28
