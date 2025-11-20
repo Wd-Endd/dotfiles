@@ -8,7 +8,7 @@ font pango:monospace 8
 # Auto Start
 # Xresources
 exec_always --no-startup-id xrdb -merge "$HOME/.Xresources"
-exec_always --no-startup-id feh --bg-scale "$HOME/.wallpaper/bars.jpg"
+exec_always --no-startup-id feh --bg-scale "$HOME/Pictures/walls-catppuccin-mocha/square-city.jpg"
 exec_always --no-startup-id "killall -q polybar; polybar main"
 exec_always --no-startup-id "picom"
 
@@ -207,11 +207,11 @@ client.background        $base
 # }
 
 # outline
-default_border pixel 1
-for_window [class="^.*"] border pixel 1
+default_border pixel 0
+for_window [class="^.*"] border pixel 0
 
 # gaps
 gaps inner 5
-gaps outer 5
+gaps outer 2
 # gaps bottom 28
 # gaps top 28

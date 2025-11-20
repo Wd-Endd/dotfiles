@@ -60,4 +60,7 @@ return {
 
 	-- Fine-Cl
 	-- require("plugins.fine-cmpline"),
+
+	-- Colorizer
+	require("plugins.colorizer"),
 }

@@ -7,7 +7,7 @@ return {
 		config = function()
 			local lspconfig = vim.lsp.config
 			local lspenable = vim.lsp.enable
-			local lsputil = vim.lsp.util
+			-- local lsputil = vim.lsp.util
 
 			for _, server in pairs(require("language-servers")) do
 				-- lspconfig(server, {})
@@ -30,6 +30,26 @@ return {
 				-- cmd = { "clangd", "--query-driver=/usr/bin/gcc" },
 				-- root_dir = require('lspconfig.util').root_pattern('.git', 'compile_commands.json', '.clangd'),
 			})
+
+			-- lspconfig("lua_ls", {
+			-- 	settings = {
+			-- 		Lua = {
+			-- 			runtime = {
+			-- 				version = "LuaJIT",
+			-- 			},
+			-- 			diagnostics = {
+			-- 				globals = { "vim" },
+			-- 			},
+			-- 			workspace = {
+			-- 				library = vim.api.nvim_get_runtime_file("", true),
+			-- 				checkThirdParty = false,
+			-- 			},
+			-- 			telemetry = {
+			-- 				enable = false,
+			-- 			},
+			-- 		},
+			-- 	}
+			-- })
 
 			lspconfig("jsonls", {
 				settings = {

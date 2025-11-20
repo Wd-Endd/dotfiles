@@ -2,10 +2,14 @@
 vim.g.mapleader = " "
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 5
+vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.cmd("set nu")
 vim.cmd("set rnu")
 vim.cmd("set nowrap")
+vim.cmd("set termguicolors")
 vim.opt.foldmethod = "expr"
 vim.opt.foldlevel = 99
 

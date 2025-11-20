@@ -9,11 +9,11 @@
   <property name="misc-highlighting-enabled" type="bool" value="false"/>
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="last-menubar-visible" type="bool" value="false"/>
-  <property name="last-window-width" type="int" value="934"/>
-  <property name="last-window-height" type="int" value="1124"/>
+  <property name="last-window-width" type="int" value="951"/>
+  <property name="last-window-height" type="int" value="1146"/>
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,287,250,250,665,50,50,820,50,50,124,50,510"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,159,287,250,665,50,50,1207,50,50,72,50,289"/>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="computer:///"/>
     <value type="string" value="file:///"/>
